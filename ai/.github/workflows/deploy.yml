@@ -1,0 +1,45 @@
+name: Deploy FastAPI to SAP Cloud Foundry
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.8'
+
+    - name: Install Dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+
+    - name: Run Tests
+      run: pytest
+
+    - name: Install Cloud Foundry CLI
+      run: |
+        sudo wget -q -O - https://packages.cloudfoundry.org/stable?release=debian64&source=github | tar -zx
+        sudo mv cf /usr/local/bin
+
+    - name: Deploy to Cloud Foundry
+      env:
+        CF_API: ${{ secrets.CF_API }}
+        CF_ORG: ${{ secrets.CF_ORG }}
+        CF_SPACE: ${{ secrets.CF_SPACE }}
+        CF_USERNAME: ${{ secrets.CF_USERNAME }}
+        CF_PASSWORD: ${{ secrets.CF_PASSWORD }}
+      run: |
+        cf api $CF_API
+        cf auth $CF_USERNAME $CF_PASSWORD
+        cf target -o $CF_ORG -s $CF_SPACE
+        cf push copilot-ai -f manifest.yml
