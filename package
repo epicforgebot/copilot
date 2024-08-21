@@ -1,0 +1,16 @@
+{
+  "name": "copilot",
+  "version": "1.0.0",
+  "description": "A SAP CAP application",
+  "scripts": {
+    "start": "cds run",
+    "test": "mocha"
+  },
+  "dependencies": {
+    "@sap/cds": "^4",
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "mocha": "^7.1.1"
+  }
+}

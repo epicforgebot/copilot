@@ -1,0 +1,14 @@
+{
+  "requires": {
+    "db": {
+      "kind": "sqlite",
+      "model": "*"
+    },
+    "auth": {
+      "kind": "xsuaa"
+    }
+  },
+  "build": {
+    "target": "."
+  }
+}

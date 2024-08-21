@@ -1,0 +1,11 @@
+{
+  "authenticationMethod": "route",
+  "routes": [
+    {
+      "source": "^/v2/(.*)$",
+      "target": "$1",
+      "destination": "srv_api",
+      "csrfProtection": false
+    }
+  ]
+}

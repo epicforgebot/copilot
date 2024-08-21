@@ -1,0 +1,11 @@
+---
+applications:
+  - name: copilot
+    path: .
+    memory: 256M
+    instances: 1
+    buildpacks:
+      - nodejs_buildpack
+    services:
+      - copilot-xsuaa
+      - copilot-destination
