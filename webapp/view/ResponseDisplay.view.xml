@@ -1,0 +1,8 @@
+<mvc:View
+  controllerName="copilot.controller.ResponseDisplay"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m">
+  <VBox width="100%">
+    <Text id="responseText" width="100%"/>
+  </VBox>
+</mvc:View>

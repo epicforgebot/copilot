@@ -1,0 +1,9 @@
+<mvc:View
+  controllerName="copilot.controller.MessageInput"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m">
+  <VBox width="100%">
+    <TextArea id="messageInput" width="100%" placeholder="Type your message here..."/>
+    <Button text="Send" press="onSendMessage" class="sapUiTinyMarginTop"/>
+  </VBox>
+</mvc:View>

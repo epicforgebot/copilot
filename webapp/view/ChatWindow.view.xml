@@ -1,0 +1,20 @@
+<mvc:View
+  controllerName="copilot.controller.ChatWindow"
+  xmlns:mvc="sap.ui.core.mvc"
+  xmlns="sap.m">
+  <Panel headerText="Chat Interface" width="auto" class="sapUiResponsiveMargin">
+    <content>
+      <List id="chatList" items="{path: '/messages'}">
+        <items>
+          <CustomListItem>
+            <HBox>
+              <Text text="{sender}" class="sapUiTinyMarginEnd"/>
+              <Text text=":"/>
+              <Text text="{message}" class="sapUiTinyMarginBegin"/>
+            </HBox>
+          </CustomListItem>
+        </items>
+      </List>
+    </content>
+  </Panel>
+</mvc:View>
